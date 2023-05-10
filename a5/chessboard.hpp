@@ -123,7 +123,7 @@ class ChessBoard {
         return false;
       }
     }
-    piece_to = move(piece_from);
+    piece_to = std::move(piece_from);
     return true;
   }
 };

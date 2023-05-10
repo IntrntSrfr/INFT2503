@@ -118,7 +118,7 @@ class ChessBoard {
       }
     }
 
-    piece_to = move(piece_from);
+    piece_to = std::move(piece_from);
     if(after_piece_move) after_piece_move(*piece_to, to);
     return true;
   }

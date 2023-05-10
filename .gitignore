@@ -2,3 +2,6 @@
 *.out
 */build
 .vscode
+.fleet
+.idea
+.build

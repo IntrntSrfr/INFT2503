@@ -9,14 +9,12 @@ void t5();
 void t6();
 
 int main() {
-  // uncomment the functions to run the tasks you want.
-
-  // t1();
-  // t2();
-  // t3();
-  // t4();
-  // t5();
-  // t6();
+  t1();
+  t2();
+  t3();
+  t4();
+  t5();
+  t6();
   return 0;
 }
 
@@ -45,7 +43,7 @@ void t2() {
   char *line = nullptr;
   strcpy(line, "weed");
 
-  // strcpy vil prøve å gjøre en nullptr dereference, som crasher programmet.
+  // strcpy prøver å skrive til nullptr, som ikke er lov
 }
 
 void t3() {
@@ -66,12 +64,12 @@ void t3() {
 
 void t4() {
   int a = 5;
-  int b;  // & brukes for å hente en addresse og brukes ikke for initialisering
-          // av variabler.
+  int b; // & brukes for å hente en addresse og brukes ikke for initialisering
+         // av variabler.
   int *c;
   c = &b;
-  a = b + *c;  // vi trenger ikke å dereferere a eller b.
-  b = 2;  // vi kan ikke endre addressen på den måten, men vi kan endre verdien.
+  a = b + *c; // vi trenger ikke å dereferere a eller b.
+  b = 2; // vi kan ikke endre addressen på den måten, men vi kan endre verdien.
 }
 
 void t5() {
@@ -80,7 +78,6 @@ void t5() {
   double &numRef = number;
 
   // assignment
-
   number += 5;
   std::cout << number << '\n';
   *ptr += 5;
@@ -93,7 +90,8 @@ int find_sum(const int *table, int length);
 
 void t6() {
   int nums[20];
-  for (int i = 0; i < 20; i++) nums[i] = i + 1;
+  for (int i = 0; i < 20; i++)
+    nums[i] = i + 1;
 
   std::cout << find_sum(nums, 10) << '\n';
   std::cout << find_sum(nums + 10, 5) << '\n';
@@ -102,6 +100,7 @@ void t6() {
 
 int find_sum(const int *table, int length) {
   int sum = 0;
-  for (int i = 0; i < length; i++) sum += table[i];
+  for (int i = 0; i < length; i++)
+    sum += table[i];
   return sum;
 }

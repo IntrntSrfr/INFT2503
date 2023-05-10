@@ -49,6 +49,17 @@ Fraction &Fraction::operator-=(const Fraction &other) {
   return *this;
 }
 
+Fraction Fraction::operator-(const int &other) const {
+  Fraction fraction = *this;
+  fraction -= other;
+  return fraction;
+}
+
+Fraction &Fraction::operator-=(const int &other) {
+  set(numerator * 1 - denominator * other, denominator * 1);
+  return *this;
+}
+
 Fraction &Fraction::operator--() {
   numerator -= denominator;
   return *this;
@@ -111,6 +122,16 @@ bool Fraction::operator<(const Fraction &other) const {
 
 bool Fraction::operator>(const Fraction &other) const {
   return (compare(other) > 0) ? true : false;
+}
+
+Fraction operator-(int num, const Fraction &other) {
+  Fraction fraction(num, 1);
+  return fraction-other;
+}
+
+std::ostream &operator<<(std::ostream &os, const Fraction &frac) {
+  os << frac.numerator << '/' << frac.denominator;
+  return os;
 }
 
 //-------------------------------------------------------------------
